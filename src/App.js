@@ -36,8 +36,11 @@ render() {
     <div className="World">
       <div className="Container">
         <Navbar/>
-        <Header title="Jobs in healthtech" subtitle="Join companies in their mission to revolutionise healthcare as we know it." image={image}/>
-      {/* <h4>{jobsData.length} jobs found</h4> */}
+        <Header title="Jobs in healthtech"
+          subtitle="Join companies in their mission to revolutionise healthcare as we know it."
+          image={image}
+          description="Email jobshealthtech@gmail.com to post a job"/>
+      <h4>{jobsData.length} jobs found</h4>
       <div className="JobList">
       {jobsData.map(job => (
         <Row link={job.fields.link} logo={job.fields.logo[0].url} companyname={job.fields.company} location={checkAll(job.fields.location)} jobtitle={job.fields.jobtitle}/>
