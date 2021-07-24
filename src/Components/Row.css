@@ -1,0 +1,59 @@
+.ContainerRow {
+    max-width: 100%;
+    background-color: #fff;
+    padding: 16px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    transition: .2s;
+}
+
+.ContainerRow:hover {
+    cursor:pointer;
+}
+
+.Left {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.Content {
+    width: auto;
+}
+
+.Thumbnail {
+    width: 45px;
+    height: 45px;
+    margin-right: 16px;
+}
+
+.ContentCompany {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+}
+
+.CompanyName {
+    margin-right: 8px;
+}
+
+.Location {
+    margin: 0px 8px;
+}
+
+@media only screen and (min-width: 800px) {
+    .ContainerRow:hover {
+        cursor:pointer;
+        box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+  }
+
+  a {
+      text-decoration: none;
+  }
+
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+  }

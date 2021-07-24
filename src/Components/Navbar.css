@@ -1,0 +1,45 @@
+.ContainerNavbar {
+    margin-top: 16px;
+    margin-bottom: 40px;
+}
+
+.Logo {
+    height: 48px;
+    background: #5157EB;
+    position: relative;
+    animation: mymove 1s forwards ease-in;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+  }
+
+  .Logo:hover {
+    cursor: pointer;
+  }
+
+  
+  @keyframes mymove {
+    from {width: 0px;}
+    to {width: 48px;}
+  }
+
+.Logo > img {
+    height: 32px;
+    opacity: 0;
+    animation: changeOpacity .5s forwards ;
+    animation-delay: .9s;
+}
+
+@keyframes changeOpacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@media only screen and (min-width: 800px) {
+    .Logo:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+}

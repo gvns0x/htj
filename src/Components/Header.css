@@ -1,0 +1,30 @@
+.ContainerHeader {
+    margin-bottom: 24px;
+}
+
+.ContainerHeader > img {
+    display: none;
+    width: 100%;
+}
+
+.Copy > h1 {
+    margin-bottom: 16px;
+}
+
+.Copy > h2 {
+    max-width: 420px;
+}
+
+@media only screen and (min-width: 690px) {
+    
+    .ContainerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .ContainerHeader > img {
+        max-width: 400px;
+        display: flex;
+    }
+  }
