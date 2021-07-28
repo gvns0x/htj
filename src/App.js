@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import '../src/App.css'
 import image from './images/hero.png'
 import Navbar from './Components/Navbar'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -33,6 +34,7 @@ render() {
   }
 
   return (
+    <Router>
     <div className="World">
       <div className="Container">
         <Navbar/>
@@ -47,7 +49,8 @@ render() {
       ))}
         </div>
         </div>
-    </div>
+      </div>
+      </Router>
   )
 }
 
