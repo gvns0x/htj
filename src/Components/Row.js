@@ -1,10 +1,11 @@
 import React from "react";
 import '../Components/Row.css'
+import ReactGA from 'react-ga';
 
 class Row extends React.Component {
     render() {
 
-        return (<a className="ContainerRow" target="_blank" href={this.props.link}>
+        return (<a onClick={this.props.clickHandler} className="ContainerRow" target="_blank" href={this.props.link}>
             <div className="Left" >
                 <img className="Thumbnail" src={this.props.logo}/>
                 <div className="Content">

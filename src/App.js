@@ -1,13 +1,14 @@
 import { tsBooleanKeyword } from "@babel/types";
-import React from "react";
+import React, {useEffect} from "react";
 import Row from './Components/Row'
 import Header from './Components/Header'
 import '../src/App.css'
 import Navbar from './Components/Navbar'
+import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
+<<<<<<< HEAD
 import hero from './images/hero.png'
-// import Home from './Pages/'
 
 function initializeAnalytics() {
   ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_CODE)
@@ -20,14 +21,16 @@ class App extends React.Component {
     }
   
     componentDidMount() {
-      // fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keySHGXWMkmUB4gL1')
-      fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keylOENOTjmRd5Du2')
+      fetch(process.env.REACT_APP_AIRTABLE_API)
         .then(res => res.json())
         .then(res => {
           console.log(res.records)
           this.setState({ jobsData: res.records })
         })
         .catch(error => console.log(error))
+      
+      ReactGA.initialize(process.env.REACT_APP_GA);
+      ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
     
@@ -52,11 +55,10 @@ render() {
           subtitle="Join companies in their mission to revolutionise healthcare as we know it."
           image={hero} description="Email jobshealthtech@gmail.com to post a job"/>
       <h4>{jobsData.length} jobs found</h4>
-      <div className="JobList">
-      {jobsData.map(job => (
-        <Row link={job.fields.link} logo={job.fields.logo[0].url} companyname={job.fields.company} location={checkAll(job.fields.location)} jobtitle={job.fields.jobtitle}/>
-      ))}
-        </div>
+          <Switch>
+            <Route path="/" exact component={JobList} />
+            <Route path="/welele" exact component={Navbar}/>
+          </Switch>
         </div>
       </div>
       </Router>
