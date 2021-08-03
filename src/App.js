@@ -7,7 +7,6 @@ import Navbar from './Components/Navbar'
 import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
-<<<<<<< HEAD
 import hero from './images/hero.png'
 
 function initializeAnalytics() {
@@ -59,7 +58,7 @@ render() {
             <Route path="/" exact component={JobList} />
             <Route path="/welele" exact component={Navbar}/>
           </Switch>
-        </div>
+</div>
       </div>
       </Router>
   )
