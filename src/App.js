@@ -3,12 +3,18 @@ import React from "react";
 import Row from './Components/Row'
 import Header from './Components/Header'
 import '../src/App.css'
-import image from './images/hero.png'
 import Navbar from './Components/Navbar'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import hero from './images/hero.png'
+// import Home from './Pages/'
 
+function initializeAnalytics() {
+  ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_CODE)
+  ReactGA.pageview("/Home");
+}
 class App extends React.Component {
-
+  
     state = {
       jobsData: []
     }
@@ -24,6 +30,8 @@ class App extends React.Component {
         .catch(error => console.log(error))
     }
 
+    
+  
 render() {
   const { jobsData } = this.state
 
@@ -33,15 +41,16 @@ render() {
     return newLocationArray
   }
 
+  initializeAnalytics();
+
   return (
     <Router>
-    <div className="World">
+    <div className="World"> 
       <div className="Container">
         <Navbar/>
         <Header title="Jobs in healthtech"
           subtitle="Join companies in their mission to revolutionise healthcare as we know it."
-          image={image}
-          description="Email jobshealthtech@gmail.com to post a job"/>
+          image={hero} description="Email jobshealthtech@gmail.com to post a job"/>
       <h4>{jobsData.length} jobs found</h4>
       <div className="JobList">
       {jobsData.map(job => (
