@@ -1,5 +1,5 @@
 import { tsBooleanKeyword } from "@babel/types";
-import React from "react";
+import React, {useEffect} from "react";
 import Row from './Components/Row'
 import Header from './Components/Header'
 import '../src/App.css'
@@ -7,6 +7,7 @@ import image from './images/hero.png'
 import Navbar from './Components/Navbar'
 import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 class App extends React.Component {
 
@@ -15,14 +16,16 @@ class App extends React.Component {
     }
   
     componentDidMount() {
-      // fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keySHGXWMkmUB4gL1')
-      fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keylOENOTjmRd5Du2')
+      fetch(process.env.REACT_APP_AIRTABLE_API)
         .then(res => res.json())
         .then(res => {
           console.log(res.records)
           this.setState({ jobsData: res.records })
         })
         .catch(error => console.log(error))
+      
+      ReactGA.initialize(process.env.REACT_APP_GA);
+      ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
 render() {
@@ -45,7 +48,8 @@ render() {
           description="Email jobshealthtech@gmail.com to post a job"/>
       <h4>{jobsData.length} jobs found</h4>
           <Switch>
-            <Route path="/" exact component={JobList}/>
+            <Route path="/" exact component={JobList} />
+            <Route path="/welele" exact component={Navbar}/>
           </Switch>
         </div>
       </div>
