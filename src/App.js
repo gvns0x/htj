@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import '../src/App.css'
 import image from './images/hero.png'
 import Navbar from './Components/Navbar'
+import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -43,11 +44,9 @@ render() {
           image={image}
           description="Email jobshealthtech@gmail.com to post a job"/>
       <h4>{jobsData.length} jobs found</h4>
-      <div className="JobList">
-      {jobsData.map(job => (
-        <Row link={job.fields.link} logo={job.fields.logo[0].url} companyname={job.fields.company} location={checkAll(job.fields.location)} jobtitle={job.fields.jobtitle}/>
-      ))}
-        </div>
+          <Switch>
+            <Route path="/" exact component={JobList}/>
+          </Switch>
         </div>
       </div>
       </Router>
