@@ -5,14 +5,12 @@ import ReactGA from 'react-ga';
 
 class JobList extends React.Component {
 
-
     state = {
       jobsData: []
     }
   
     componentDidMount() {
-      // fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keySHGXWMkmUB4gL1')
-      fetch('https://api.airtable.com/v0/appTzCPubfXsFiQPe/joblist?api_key=keylOENOTjmRd5Du2')
+      fetch(process.env.REACT_APP_AIRTABLE_API)
         .then(res => res.json())
         .then(res => {
           console.log(res.records)

@@ -8,11 +8,6 @@ import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import hero from './images/hero.png'
-
-function initializeAnalytics() {
-  ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_CODE)
-  ReactGA.pageview("/Home");
-}
 class App extends React.Component {
   
     state = {
@@ -32,8 +27,6 @@ class App extends React.Component {
       ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
-    
-  
 render() {
   const { jobsData } = this.state
 
@@ -42,8 +35,6 @@ render() {
     const newLocationArray = e.join(" / ")
     return newLocationArray
   }
-
-  initializeAnalytics();
 
   return (
     <Router>
