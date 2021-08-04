@@ -1,6 +1,7 @@
 import React from "react";
 import '../Components/Row.css'
 import ReactGA from 'react-ga';
+import MedicalField from "./MedicalField";
 
 class Row extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class Row extends React.Component {
                         <p className="Body2 Dark2 Location">{this.props.location}</p> 
                         <p className="Body2 Dark2">{this.props.remotestatus}</p>
                     </div>
+                    <MedicalField/>
                 </div>
             </div>
         </a>
