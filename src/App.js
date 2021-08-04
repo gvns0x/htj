@@ -8,6 +8,7 @@ import JobList from './Layouts/JobList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import hero from './images/hero.png'
+import LastUpdate from './Components/LastUpdate'
 class App extends React.Component {
   
     state = {
@@ -44,7 +45,8 @@ render() {
         <Header title="Jobs in healthtech"
           subtitle="Join companies in their mission to revolutionise healthcare as we know it."
           image={hero} description="Email jobshealthtech@gmail.com to post a job"/>
-      <h4>{jobsData.length} jobs found</h4>
+          <h4>{jobsData.length} jobs found</h4>
+          <LastUpdate/>
           <Switch>
             <Route path="/" exact component={JobList} />
             <Route path="/welele" exact component={Navbar}/>
