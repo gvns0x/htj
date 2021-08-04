@@ -14,7 +14,7 @@ class LastUpdate extends React.Component {
     render() {
         return (
             <div class="World-LastUpdate">
-                <h4 className="LastUpdate-Title">Last updated:</h4>
+                <h4 className="LastUpdate-Title">Last job added</h4>
                 <h4><Moment fromNow>{this.props.lastUpdate}</Moment></h4>
             </div>
         )
