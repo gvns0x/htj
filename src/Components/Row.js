@@ -16,7 +16,11 @@ class Row extends React.Component {
                         <p className="Body2 Dark2 Location">{this.props.location}</p> 
                         <p className="Body2 Dark2">{this.props.remotestatus}</p>
                     </div>
-                    <MedicalField/>
+                    <div className="ContentMedicalFields">
+                    {this.props.arrayOfMedicalFields.map(medicalfield => (
+                        <MedicalField medicalfield={medicalfield}/>
+                    ))}
+                    </div>
                 </div>
             </div>
         </a>

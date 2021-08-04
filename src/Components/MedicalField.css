@@ -1,7 +1,9 @@
 .World-MedicalField {
     background-color: #E6ECF4;
     border-radius: 4px;
-    padding: 4px 4px;
+    padding: 4px 8px;
     width: auto;
     max-width:fit-content;
+    margin-right: 8px;
+    margin-top: 8px;
 }

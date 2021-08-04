@@ -18,7 +18,7 @@
 }
 
 .Content {
-    width: auto;
+    width: 100%;
 }
 
 .Thumbnail {
@@ -40,6 +40,16 @@
 
 .Location {
     margin: 0px 8px;
+}
+
+.ContentMedicalFields {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: -4px;
 }
 
 @media only screen and (min-width: 800px) {

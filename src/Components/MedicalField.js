@@ -5,7 +5,7 @@ class MedicalField extends React.Component {
     render() {
         return (
             <div className="World-MedicalField Body2 Dark2">
-                HeyoI can gorwww
+                {this.props.medicalfield}
             </div>
         )
     }

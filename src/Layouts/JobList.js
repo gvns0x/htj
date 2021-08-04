@@ -35,13 +35,17 @@ render() {
         action: 'Job: ' + e.jobtitle + ' at ' + e.company,
         label: e.link
     })
-}
+  }
+  
+  const getMedicalFields = (e) => {
+    return e.medicalfield
+  }
 
   return (
     <div className="World-JobList">
       <div className="JobList">
       {jobsData.map(job => (
-          <Row clickHandler={clickHandler(job.fields)} link={job.fields.link} logo={job.fields.logo[0].url} companyname={job.fields.company} location={checkAll(job.fields.location)} jobtitle={job.fields.jobtitle}/>
+        <Row clickHandler={clickHandler(job.fields)} link={job.fields.link} logo={job.fields.logo[0].url} companyname={job.fields.company} location={checkAll(job.fields.location)} jobtitle={job.fields.jobtitle} arrayOfMedicalFields={job.fields.medicalfield}/>
       ))}
         </div>
         </div>
