@@ -37,6 +37,27 @@ render() {
     return newLocationArray
   }
 
+  const mostRecentDate = (e) => {
+    const allDates = ["Loading"];
+    
+    /* Getting all date values in a Date format inside of the array */
+    for (var i = 0; i < jobsData.length; i++) {
+      allDates.push(new Date(jobsData[i].createdTime))
+    }
+
+    /* Getting the most recent date from the array */
+    const mostRecentObject = allDates.reduce((a, b) => {
+      return a > b ? a : b;
+    })
+
+    /* Truning that date into a string */
+    const mostRecent = mostRecentObject.toString()
+
+    return mostRecent;
+  }
+
+  mostRecentDate();
+
   return (
     <Router>
     <div className="World"> 
@@ -45,11 +66,10 @@ render() {
         <Header title="Jobs in healthtech"
           subtitle="Join companies in their mission to revolutionise healthcare as we know it."
           image={hero} description="Email jobshealthtech@gmail.com to post a job"/>
-          <h4>{jobsData.length} jobs found</h4>
-          <LastUpdate/>
+          <h3>{jobsData.length} jobs found</h3>
+          <LastUpdate lastUpdate={mostRecentDate()}/>
           <Switch>
             <Route path="/" exact component={JobList} />
-            <Route path="/welele" exact component={Navbar}/>
           </Switch>
 </div>
       </div>

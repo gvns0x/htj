@@ -1,0 +1,10 @@
+.World-LastUpdate {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    color: #5E6C81;
+}
+
+.LastUpdate-Title {
+    margin-right: 4px;
+}
